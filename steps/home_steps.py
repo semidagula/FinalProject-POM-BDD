@@ -3,14 +3,17 @@ from behave import given, when, then
 from pages.home_page import HomePage
 
 
-@when(u'Login Page: I am on the shein  login page')
+@given("User is on the Home page")
 def step_impl(context):
-    page = HomePage(context.driver)
-    assert page.open()
+    context.home_page = HomePage(context.driver)
+    context.home_page.open()
 
 
-@then(u'I should see "Shein "')
+@when("User looks at the logo")
 def step_impl(context):
-    print(u'STEP: Then I should see "Shein "')
-    page = HomePage(context.driver)
-    assert page.get_logo()
+    context.logo_displayed = context.home_page.logo_displayed()
+
+
+@when("Logo should be displayed")
+def step_impl(context):
+    assert context.logo_displayed is True

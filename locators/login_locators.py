@@ -11,4 +11,4 @@ class LoginLocators:
 
     PERSONAL_CENTER_MENU = (By.XPATH, "//h3[@title='Personal Center']")
 
-    PASSWORD_ERROR_MESSAGE = (By.CSS_SELECTOR, "#advice-validate-password-pass")
+    PASSWORD_ERROR_MESSAGE = (By.XPATH, "//div[@id='advice-validate-password-pass']")
